@@ -13,14 +13,15 @@ import javax.inject.Inject;
 public class MainActivity extends AppCompatActivity {
     @Inject Photo photo;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        setContentView(R.layout.activity_main);
-
+        String photoURL = "https://farm1.staticflickr.com/873/26181252757_b48b14d936_b.jpg";
         ((MyApp) getApplication()).getPhotoComponent().photo(this);
 
-        photo.downloadImage((ImageView) findViewById(R.id.imageView));
+        photo.downloadImage((ImageView) findViewById(R.id.imageView), photoURL);
 
 
     }

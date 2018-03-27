@@ -17,9 +17,10 @@ public class MyApp extends Application {
         super.onCreate();
 
         component = DaggerPhotoApplicationComponent.builder()
-                .photoModule(new PhotoModule("https://farm1.staticflickr.com/873/26181252757_b48b14d936_b.jpg"))
+                .photoModule(new PhotoModule())
                 .build();
     }
+
     public PhotoApplicationComponent getPhotoComponent() {
         return this.component;
     }

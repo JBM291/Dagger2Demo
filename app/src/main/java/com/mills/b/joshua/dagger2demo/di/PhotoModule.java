@@ -13,15 +13,15 @@ import dagger.Provides;
  */
 @Module
 public class PhotoModule {
-    private String url;
 
-    public PhotoModule(String url) {
-        this.url = url;
+    public PhotoModule() {
+
     }
 
     @Provides
     Photo providePhoto(PhotoDownloader photoDownloader){
-        return new Photo(url, photoDownloader);
+
+        return new Photo(photoDownloader);
     }
 
     @Provides

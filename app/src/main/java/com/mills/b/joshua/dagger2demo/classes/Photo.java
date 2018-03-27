@@ -7,16 +7,13 @@ import android.widget.ImageView;
  */
 
 public class Photo {
-    private String url;
     private PhotoDownloader photoDownloader;
 
-    public Photo(String url,PhotoDownloader photoDownloader) {
-        this.url = url;
+    public Photo(PhotoDownloader photoDownloader) {
         this.photoDownloader = photoDownloader;
     }
 
-    public void downloadImage(ImageView imageView){
-
+    public void downloadImage(ImageView imageView,String url){
         this.photoDownloader.getPhoto(imageView,url);
     }
 }
