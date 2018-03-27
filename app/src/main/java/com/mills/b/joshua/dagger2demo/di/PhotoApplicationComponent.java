@@ -1,5 +1,6 @@
 package com.mills.b.joshua.dagger2demo.di;
 
+import com.mills.b.joshua.dagger2demo.activity.BaseActivity;
 import com.mills.b.joshua.dagger2demo.activity.MainActivity;
 import com.mills.b.joshua.dagger2demo.classes.Photo;
 
@@ -14,6 +15,5 @@ import dagger.Component;
 @Singleton
 @Component(modules = PhotoModule.class)
 public interface PhotoApplicationComponent {
-    void photo(MainActivity activity);
-    //PhotoDownloader PhotoDownloader();
+    void photo(BaseActivity activity);
 }

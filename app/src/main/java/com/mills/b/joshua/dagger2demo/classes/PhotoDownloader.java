@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso;
  */
 
 public class PhotoDownloader {
-    public boolean getPhoto(ImageView imageView, String url){
+    boolean getPhoto(ImageView imageView, String url){
 
         Picasso.get().load(url)
                 .placeholder(R.drawable.placeholder)

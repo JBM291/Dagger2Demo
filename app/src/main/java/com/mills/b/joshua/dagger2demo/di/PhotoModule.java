@@ -14,9 +14,6 @@ import dagger.Provides;
 @Module
 public class PhotoModule {
 
-    public PhotoModule() {
-
-    }
 
     @Provides
     Photo providePhoto(PhotoDownloader photoDownloader){
