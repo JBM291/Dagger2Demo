@@ -1,8 +1,6 @@
-package com.mills.b.joshua.dagger2demo.Classes;
+package com.mills.b.joshua.dagger2demo.classes;
 
 import android.widget.ImageView;
-
-import com.mills.b.joshua.dagger2demo.di.PhotoModule;
 
 /**
  * Created by Inferno on 3/26/2018.
@@ -10,16 +8,15 @@ import com.mills.b.joshua.dagger2demo.di.PhotoModule;
 
 public class Photo {
     private String url;
-    private ImageView imageView;
     private PhotoDownloader photoDownloader;
 
-    public Photo(String url, ImageView imageView,PhotoDownloader photoDownloader) {
+    public Photo(String url,PhotoDownloader photoDownloader) {
         this.url = url;
-        this.imageView = imageView;
         this.photoDownloader = photoDownloader;
     }
 
-    public void downloadImage(){
+    public void downloadImage(ImageView imageView){
+
         this.photoDownloader.getPhoto(imageView,url);
     }
 }

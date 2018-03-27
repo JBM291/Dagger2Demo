@@ -4,24 +4,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
-import com.mills.b.joshua.dagger2demo.Classes.Photo;
-import com.mills.b.joshua.dagger2demo.Classes.PhotoDownloader;
+import com.mills.b.joshua.dagger2demo.classes.MyApp;
+import com.mills.b.joshua.dagger2demo.classes.Photo;
 import com.mills.b.joshua.dagger2demo.R;
-import com.mills.b.joshua.dagger2demo.di.DaggerPhotoApplicationComponent;
-import com.mills.b.joshua.dagger2demo.di.PhotoApplicationComponent;
-import com.mills.b.joshua.dagger2demo.di.PhotoModule;
 
-import dagger.android.DaggerApplication;
+import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
+    @Inject Photo photo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        PhotoApplicationComponent component = DaggerPhotoApplicationComponent.builder()
-                .photoModule(new PhotoModule("",(ImageView) findViewById(R.id.imageView))).build();
+       setContentView(R.layout.activity_main);
 
-        Photo photo = component.photo();
+        ((MyApp) getApplication()).getPhotoComponent().photo(this);
+
+        photo.downloadImage((ImageView) findViewById(R.id.imageView));
+
+
     }
 }

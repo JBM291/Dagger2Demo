@@ -1,9 +1,7 @@
 package com.mills.b.joshua.dagger2demo.di;
 
-import android.widget.ImageView;
-
-import com.mills.b.joshua.dagger2demo.Classes.Photo;
-import com.mills.b.joshua.dagger2demo.Classes.PhotoDownloader;
+import com.mills.b.joshua.dagger2demo.classes.Photo;
+import com.mills.b.joshua.dagger2demo.classes.PhotoDownloader;
 
 import javax.inject.Singleton;
 
@@ -16,20 +14,20 @@ import dagger.Provides;
 @Module
 public class PhotoModule {
     private String url;
-    private ImageView imageView;
 
-    public PhotoModule(String url, ImageView imageView) {
+    public PhotoModule(String url) {
         this.url = url;
-        this.imageView = imageView;
     }
 
-    Photo provides(PhotoDownloader photoDownloader){
-        return new Photo(url,imageView, photoDownloader);
+    @Provides
+    Photo providePhoto(PhotoDownloader photoDownloader){
+        return new Photo(url, photoDownloader);
     }
 
     @Provides
     @Singleton
     PhotoDownloader providesPhotoDownloader(){
+
         return new PhotoDownloader();
     }
 }

@@ -1,4 +1,4 @@
-package com.mills.b.joshua.dagger2demo.Classes;
+package com.mills.b.joshua.dagger2demo.classes;
 
 import android.widget.ImageView;
 
